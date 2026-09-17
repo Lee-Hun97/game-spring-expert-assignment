@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(
         name = "chat_messages",
         indexes = {
-            @Index(
+            @Index(//인덱스로 생성, 나중에 인덱스 기능을 사용할 수 있음
                     name = "idx_chat_world_created_at",
                     columnList = "world_id, created_at"
             )

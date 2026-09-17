@@ -1,11 +1,21 @@
 package com.gameexpert.player.dto;
 
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 @Getter
 public class CreatePlayerRequest {
 
-    // TODO Lv 3: 2~12글자의 영문 대소문자, 숫자와 밑줄을 허용하는 검증을 적용합니다.
+    // TODO Lv 3: 2~12글자의 영문 대소문자, 숫자와 밑줄을 허용하는 검증을 적용합니다.\
+    @Size(
+            min = 3,
+            max = 12
+    )
+    @Pattern(
+            regexp = "^[a-zA-Z0-9_]+$",
+            message = "조건을 충족하지 않습니다?"
+    )
     private final String nickname;
 
     public CreatePlayerRequest(String nickname) {
