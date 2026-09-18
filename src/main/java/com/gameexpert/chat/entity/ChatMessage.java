@@ -10,6 +10,7 @@ import com.gameexpert.world.entity.World;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
 @Entity
@@ -41,8 +42,12 @@ public class ChatMessage {
     private String content;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
     public ChatMessage(World world, String senderNickname, String content) {
         this.world = world;
