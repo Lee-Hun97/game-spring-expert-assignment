@@ -40,7 +40,7 @@ public class ChatHistoryService {
                 )).toList();
         // TODO Lv 17: 다음 페이지가 있으면 반환한 마지막 항목을, 없으면 null을 선택합니다.
         ChatHistoryEntry last;
-        if(items.isEmpty()){
+        if(!hasNext){
             last = null;
         }
         else {
